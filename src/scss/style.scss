@@ -1,0 +1,10 @@
+$colors: (text: rgb(40,40,40),
+background-dark: rgb(236,239,241)F,
+background-light: #FFFFFF,
+contour: rgb(233, 227, 227));
+
+@import url('https://fonts.googleapis.com/css?family=Karla|Space+Mono');
+
+@function color($color-name) {
+    @return map-get($colors, $color-name)
+}
