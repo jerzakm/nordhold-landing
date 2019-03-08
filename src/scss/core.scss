@@ -1,11 +1,11 @@
 @import "responsive"; //device width mixins
 @import "style"; //typography and colors
 
-@import "navigation"; //navigation
 @import "main";
 
 body {
     background-color: color(background-dark);
     color: color(text);
     font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
 }
