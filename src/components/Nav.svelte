@@ -1,10 +1,13 @@
 <script>
   import { onMount } from 'svelte'
 
+  import Search32 from "carbon-icons-svelte/lib/Search32";
+
   export let segment
 
   const navMap = {
-    products: 'Produkty',
+    products: 'Fotele',
+    p2: 'Biurka',
     contact: 'Kontakt'
   }
 
@@ -36,7 +39,7 @@
 
 <style>
   ul {
-    margin: 0;
+    margin-bottom: -8px;
     padding: 0;
   }
 
@@ -52,15 +55,20 @@
 
   a {
     text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 700;
   }
 
+  .logo {
+    width: 20rem;
+  }
 
 
 </style>
 
-<nav class="flex lg:mt-8 items-center justify-between z-50">
+<nav class="flex items-center justify-between z-50 mt-4">
   <a href=".">
-    <h1 class="logo tracking-wide"><img src="nordhold_logo.png" alt="Logo Nordhold" class="w-64"></h1>
+    <img src="nordhold_logo.png" alt="Logo Nordhold" class="logo">
   </a>
   <ul class="fixed lg:relative bottom-0 right-0 z-50" bind:this={navList}>
     {#each Object.keys(navMap) as route}
@@ -71,12 +79,24 @@
           rel="prefetch"
           aria-current={segment === `${route}` ? 'page' : undefined}
           href={route}
-          class="text-blue-900 py-3 lg:mr-12 tracking-wider ">
+          class="lg:mr-12 tracking-wider ">
           {navMap[route]}
         </a>
       </li>
     {/each}
   </ul>
 
+  <searchbox>
+      <div class="bg-white flex items-center rounded-full shadow-2xl">
+        <input class="rounded-l-full w-full py-2 px-6 text-gray-800 leading-tight focus:outline-none" type="text" placeholder="Wyszukaj">
+
+        <div class="p-4">
+          <button class="bg-black text-white rounded-full p-2 hover:bg-royalblue-600 focus:outline-none w-12 h-12 flex items-center justify-center">
+            <Search32 class="w-4/5"/>
+          </button>
+          </div>
+        </div>
+
+  </searchbox>
 
 </nav>

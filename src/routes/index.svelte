@@ -12,5 +12,5 @@
 </svelte:head>
 
 <TransitionWrapper>
-  <div class="rounded-lg p-8 text-center max-w-sm w-full">asd</div>
+
 </TransitionWrapper>

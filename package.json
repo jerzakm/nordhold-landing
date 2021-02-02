@@ -1,6 +1,6 @@
 {
-  "name": "marketflow",
-  "description": "webapp and landing page for e-commerce tools",
+  "name": "nordhold-landing",
+  "description": "Nordhold brand landing page",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
@@ -17,7 +17,8 @@
     "carbon-icons-svelte": "^10.13.0",
     "compression": "^1.7.1",
     "polka": "next",
-    "sirv": "^0.4.0"
+    "sirv": "^0.4.0",
+    "tailwindcss-neumorphism": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
