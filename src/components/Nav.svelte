@@ -6,8 +6,9 @@
   export let segment
 
   const navMap = {
-    products: 'Fotele',
-    p2: 'Biurka',
+    chairs: 'Fotele',
+    desks: 'Biurka',
+    support: 'Wsparcie',
     contact: 'Kontakt'
   }
 
@@ -55,9 +56,10 @@
 
   a {
     text-decoration: none;
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 500;
   }
+
 
   .logo {
     width: 20rem;
@@ -79,7 +81,7 @@
           rel="prefetch"
           aria-current={segment === `${route}` ? 'page' : undefined}
           href={route}
-          class="lg:mr-12 tracking-wider ">
+          class="lg:mr-12 tracking-wider">
           {navMap[route]}
         </a>
       </li>
