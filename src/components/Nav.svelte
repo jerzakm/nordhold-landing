@@ -68,7 +68,7 @@
 
 </style>
 
-<nav class="flex items-center justify-between z-50 mt-4">
+<nav class="flex items-center justify-between z-50 mt-4 px-32">
   <a href=".">
     <img src="nordhold_logo.png" alt="Logo Nordhold" class="logo">
   </a>
