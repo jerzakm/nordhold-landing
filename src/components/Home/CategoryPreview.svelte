@@ -6,6 +6,8 @@
         "bg-red-600",
         "bg-green-600"
     ]
+
+    export let categoryName
 </script>
 
 <style>
@@ -16,7 +18,7 @@
     <div class="container px-5 mx-auto">
       <div class="flex flex-col">
         <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
-          <h1 class="sm:w-2/5 text-gray-900 uppercase raleway text-2xl mb-2 sm:mb-0" style="letter-spacing: 0.3em;">Fotele obrotowe</h1>
+          <h1 class="sm:w-2/5 text-gray-900 uppercase raleway text-2xl mb-2 sm:mb-0" style="letter-spacing: 0.3em;">{categoryName}</h1>
           <p class="sm:w-3/5 leading-relaxed text-base sm:pl-10 pl-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam, nemo deleniti eum explicabo perferendis illum harum quasi commodi pariatur corporis?</p>
         </div>
       </div>

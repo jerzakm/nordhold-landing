@@ -93,7 +93,7 @@
         <input class="rounded-l-full w-full py-2 px-6 text-gray-800 leading-tight focus:outline-none" type="text" placeholder="Wyszukaj">
 
         <div class="p-4">
-          <button class="bg-black text-white rounded-full p-2 hover:bg-royalblue-600 focus:outline-none w-12 h-12 flex items-center justify-center">
+          <button class="bg-black text-white rounded-full p-2 hover:bg-red-600 focus:outline-none w-12 h-12 flex items-center justify-center">
             <Search32 class="w-4/5"/>
           </button>
           </div>

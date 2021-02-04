@@ -18,8 +18,8 @@
 <heroHome>
   <HeroCarousel/>
   <BrandStats/>
-  <CategoryPreview/>
+  <CategoryPreview categoryName={"Fotele obrotowe"}/>
   <BrandQualities/>
-  <CategoryPreview/>
+  <CategoryPreview categoryName={"Biurka"}/>
   <NewsletterSignup/>
 </heroHome>

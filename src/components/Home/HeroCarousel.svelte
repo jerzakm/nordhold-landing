@@ -17,7 +17,7 @@
 
     .hero {
         transform-origin: center;
-        transform: scale(1.3) translateY(90px);
+        transform: scale(1) ;
     }
 </style>
 
@@ -32,10 +32,10 @@
             <section class="grid grid-cols-2 gap-2 mt-8 px-32">
                 <div class="">
                     <img
-                        src="skadi_hero.png"
+                        src="06.jpg"
                         alt="skadi"
-                        class="hero mt-8 block" />
-                    </div>
+                        class="hero mt-8 block shadow-2xl " />
+                </div>
                 <div class="flex flex-col justify-around z-10">
                 <div class="flex flex-col items-start ">
                     <h2 class="uppercase raleway ml-1">Seria Ergo</h2>
