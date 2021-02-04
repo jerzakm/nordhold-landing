@@ -32,7 +32,7 @@
             <section class="grid grid-cols-2 gap-2 mt-8 px-32">
                 <div class="">
                     <img
-                        src="skadi_hero2.png"
+                        src="skadi_hero.png"
                         alt="skadi"
                         class="hero mt-8 block" />
                     </div>

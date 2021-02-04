@@ -1,42 +1,45 @@
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
+<section class="text-gray-600 body-font px-24 py-8">
+  <div class="container flex">
 
-    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-      <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
-        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full mb-5 flex-shrink-0">
-          <svg fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-16 h-16" viewBox="0 0 24 24">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-          </svg>
-        </div>
-        <div class="flex-grow">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Jakość</h2>
-          <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo dolores ducimus nulla ex eius doloremque.</p>
-        </div>
+    <div class="flex items-center lg:w-3/5 pb-10 mb-10  sm:flex-row flex-col">
+      <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full  text-black flex-shrink-0">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="sm:w-16 sm:h-16 w-10 h-10" viewBox="0 0 24 24">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>
       </div>
-      <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
-        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full mb-5 flex-shrink-0">
-          <svg fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-16 h-16" viewBox="0 0 24 24">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-          </svg>
-        </div>
-        <div class="flex-grow">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Szybka wysyłka</h2>
-          <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo dolores ducimus nulla ex eius doloremque.</p>
+      <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+        <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Jakość</h2>
+        <p class="leading-relaxed text-base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non eveniet ratione voluptas doloribus. Reiciendis nisi ratione repellat quod!</p>
 
-        </div>
-      </div>
-      <div class="p-4 md:w-1/3 flex flex-col text-center items-center">
-        <div class="w-20 h-20 inline-flex items-center justify-center rounded-full mb-5 flex-shrink-0">
-          <svg fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-16 h-16" viewBox="0 0 24 24">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-          </svg>
-        </div>
-        <div class="flex-grow">
-          <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Serwis i wsparcie</h2>
-          <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo dolores ducimus nulla ex eius doloremque.</p>
-
-        </div>
       </div>
     </div>
+
+    <div class="flex items-center lg:w-3/5 pb-10 mb-10  sm:flex-row flex-col">
+      <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full  text-black flex-shrink-0">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="sm:w-16 sm:h-16 w-10 h-10" viewBox="0 0 24 24">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>
+      </div>
+      <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+        <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Szybka wysyłka</h2>
+        <p class="leading-relaxed text-base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non eveniet ratione voluptas doloribus. Reiciendis nisi ratione repellat quod!</p>
+
+      </div>
+    </div>
+
+    <div class="flex items-center lg:w-3/5 pb-10 mb-10  sm:flex-row flex-col">
+      <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full text-black flex-shrink-0">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="sm:w-16 sm:h-16 w-10 h-10" viewBox="0 0 24 24">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+        </svg>
+      </div>
+      <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+        <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Wsparcie i obsługa</h2>
+        <p class="leading-relaxed text-base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non eveniet ratione voluptas doloribus. Reiciendis nisi ratione repellat quod!</p>
+
+      </div>
+    </div>
+
+
   </div>
 </section>

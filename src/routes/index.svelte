@@ -3,6 +3,8 @@
   import HeroCarousel from '../components/Home/HeroCarousel.svelte'
   import NewsletterSignup from '../components/Home/NewsletterSignup.svelte'
   import BrandQualities from '../components/Home/BrandQualities.svelte'
+  import BrandStats from '../components/Home/BrandStats.svelte'
+  import CategoryPreview from '../components/Home/CategoryPreview.svelte'
 </script>
 
 <style>
@@ -15,7 +17,9 @@
 
 <heroHome>
   <HeroCarousel/>
+  <BrandStats/>
+  <CategoryPreview/>
   <BrandQualities/>
+  <CategoryPreview/>
   <NewsletterSignup/>
 </heroHome>
-
