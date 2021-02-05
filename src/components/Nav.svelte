@@ -20,17 +20,17 @@
   onMount(() => {
     function resize() {
       width = window.innerWidth
-      for (const el of navList.children) {
-        if (width <= 1024) {
-          el.style.right = `-100px`
-          el.style.bottom = `-100px`
-          el.style.opacity = 0
-        } else {
-          el.style.opacity = 1
-          el.style.right = 'unset'
-          el.style.bottom = 'unset'
-        }
-      }
+      // for (const el of navList.children) {
+      //   if (width <= 1024) {
+      //     el.style.right = `-100px`
+      //     el.style.bottom = `-100px`
+      //     el.style.opacity = 0
+      //   } else {
+      //     el.style.opacity = 1
+      //     el.style.right = 'unset'
+      //     el.style.bottom = 'unset'
+      //   }
+      // }
     }
 
     resize()
@@ -46,18 +46,18 @@
 
   li {
     float: left;
+    font-size: 1.15rem;
+    font-weight: 500;
   }
   @media (min-width: 1024px) {
     li {
-      display: block;
+      font-size: 1.4rem;
     }
   }
 
 
   a {
     text-decoration: none;
-    font-size: 1.3rem;
-    font-weight: 500;
   }
 
 
@@ -68,15 +68,15 @@
 
 </style>
 
-<nav class="flex items-center justify-between z-50 mt-4 px-32">
+<nav class="fixed md:relative flex md:items-center md:justify-between z-50 mt-4 px-6 md:px-12 xxl:px-32 bottom-0 bg-white md:bg-transparent w-full py-8 md:py-0">
   <a href=".">
-    <img src="nordhold_logo.png" alt="Logo Nordhold" class="logo">
+    <img src="nordhold_logo.png" alt="Logo Nordhold" class="logo hidden md:block">
   </a>
-  <ul class="fixed lg:relative bottom-0 right-0 z-50" bind:this={navList}>
+  <ul class="z-50 flex justify-between content-between md:justify-center flex-row w-full" bind:this={navList}>
     {#each Object.keys(navMap) as route}
       <li
-        class="fixed lg:relative bottom-0 right-0 ease-in duration-300 lg:p-0
-        p-1 rounded-full z-40 opacity-0 lg:opacity-100">
+        class="lg:p-0
+        p-1 z-40">
         <a
           rel="prefetch"
           aria-current={segment === `${route}` ? 'page' : undefined}
@@ -88,7 +88,7 @@
     {/each}
   </ul>
 
-  <searchbox>
+  <searchbox class=" hidden md:block">
       <div class="bg-white flex items-center rounded-full shadow-2xl">
         <input class="rounded-l-full w-full py-2 px-6 text-gray-800 leading-tight focus:outline-none" type="text" placeholder="Wyszukaj">
 
