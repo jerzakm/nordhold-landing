@@ -17,11 +17,11 @@
   <title>Nordhold</title>
 </svelte:head>
 
-<!-- <HeroCarousel/>
-<TestimonialScroll/>
-<CategoryPreview categoryName={"Fotele obrotowe"}/>
-<BrandQualities/>
-<CategoryPreview categoryName={"Fotele obrotowe"}/>
-<CategoryPreview2 categoryName={"Biurka"}/>
-<BrandStats/>
-<NewsletterSignup/> -->
+<HeroCarousel/>
+<!-- <TestimonialScroll/> -->
+<!-- <CategoryPreview categoryName={"Fotele obrotowe"}/> -->
+<!-- <BrandQualities/> -->
+<!-- <CategoryPreview categoryName={"Fotele obrotowe"}/> -->
+<!-- <CategoryPreview2 categoryName={"Biurka"}/> -->
+<!-- <BrandStats/> -->
+<!-- <NewsletterSignup/> -->
