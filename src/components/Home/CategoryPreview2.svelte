@@ -14,7 +14,7 @@
 
 </style>
 
-<section class="text-gray-600 body-font mb-8 overflow-hidden">
+<section class="text-black body-font mb-8">
     <div class="container px-5 mx-auto">
       <div class="flex flex-col">
         <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
@@ -28,7 +28,7 @@
         {#each {length: 5} as g, i}
 
 
-          <div class={`flex-shrink-0 m-4 relative overflow-hidden ${colors[i]} rounded-lg max-w-xs shadow-2xl`}>
+          <div class={`flex-shrink-0 m-4 relative overflow-hidden rounded-lg max-w-xs shadow-2xl`}>
             <svg class="absolute bottom-0 left-0 mb-8" viewBox="0 0 375 283" fill="none" style="transform: scale(1.5) translateY(-50px); opacity: 0.1;">
               <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)" fill="white"/>
               <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white"/>
@@ -39,7 +39,7 @@
               <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3" style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"></div>
               <img class="relative w-64" src="skadi_hero2.png" alt="">
             </div>
-            <div class="relative text-white px-6 pb-6 -mt-6">
+            <div class="relative  px-6 pb-6 -mt-6">
               <span class="block opacity-75 -mb-1">Ergo</span>
               <div class="flex justify-between">
                 <span class="block font-semibold text-xl">Skadi</span>
@@ -61,7 +61,7 @@
                 <svg fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-indigo-500" viewBox="0 0 24 24">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                 </svg>
-                <span class="text-white ml-3">(64)</span>
+                <span class=" ml-3">(64)</span>
               </span>
             </div>
           </div>

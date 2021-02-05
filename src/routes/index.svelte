@@ -5,6 +5,8 @@
   import BrandQualities from '../components/Home/BrandQualities.svelte'
   import BrandStats from '../components/Home/BrandStats.svelte'
   import CategoryPreview from '../components/Home/CategoryPreview.svelte'
+  import CategoryPreview2 from '../components/Home/CategoryPreview2.svelte'
+  import TestimonialScroll from '../components/Home/TestimonialScroll.svelte'
 </script>
 
 <style>
@@ -15,11 +17,11 @@
   <title>Nordhold</title>
 </svelte:head>
 
-<heroHome>
-  <HeroCarousel/>
-  <BrandStats/>
-  <CategoryPreview categoryName={"Fotele obrotowe"}/>
-  <BrandQualities/>
-  <CategoryPreview categoryName={"Biurka"}/>
-  <NewsletterSignup/>
-</heroHome>
+<!-- <HeroCarousel/>
+<TestimonialScroll/>
+<CategoryPreview categoryName={"Fotele obrotowe"}/>
+<BrandQualities/>
+<CategoryPreview categoryName={"Fotele obrotowe"}/>
+<CategoryPreview2 categoryName={"Biurka"}/>
+<BrandStats/>
+<NewsletterSignup/> -->

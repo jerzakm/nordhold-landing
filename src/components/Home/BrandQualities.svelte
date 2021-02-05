@@ -1,4 +1,4 @@
-<section class="text-gray-600 body-font px-24 py-8">
+<section class="text-gray-600 body-font px-24 py-8 overflow-hidden">
   <div class="container flex">
 
     <div class="flex items-center lg:w-3/5 pb-10 mb-10  sm:flex-row flex-col">
@@ -21,7 +21,7 @@
         </svg>
       </div>
       <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-        <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Szybka wysyłka</h2>
+        <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Wieloletnie doświadczenie</h2>
         <p class="leading-relaxed text-base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non eveniet ratione voluptas doloribus. Reiciendis nisi ratione repellat quod!</p>
 
       </div>

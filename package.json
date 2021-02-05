@@ -18,7 +18,8 @@
     "compression": "^1.7.1",
     "polka": "next",
     "sirv": "^0.4.0",
-    "tailwindcss-neumorphism": "^0.1.0"
+    "tailwindcss-neumorphism": "^0.1.0",
+    "three": "^0.125.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

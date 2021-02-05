@@ -32,9 +32,9 @@
             <section class="grid grid-cols-2 gap-2 mt-8 px-32">
                 <div class="">
                     <img
-                        src="06.jpg"
+                        src="z.png"
                         alt="skadi"
-                        class="hero mt-8 block shadow-2xl " />
+                        class="hero mt-8 block " />
                 </div>
                 <div class="flex flex-col justify-around z-10">
                 <div class="flex flex-col items-start ">
