@@ -1,6 +1,6 @@
 <section class="text-gray-600 body-font">
 
-      <div class="flex flex-wrap -m-4 px-6 md:px-12 xxl:px-32">
+      <div class="flex flex-wrap px-6 md:px-12 xxl:px-32">
         <div class="p-4 md:w-1/2 w-full">
           <div class="h-full bg-gray-100 p-8 rounded shadow-2xl">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="block w-5 h-5 text-gray-700 mb-4" viewBox="0 0 975.036 975.036">
