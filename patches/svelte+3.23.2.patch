@@ -1,0 +1,30 @@
+diff --git a/node_modules/svelte/internal/index.js b/node_modules/svelte/internal/index.js
+index 3e92536..e9e753c 100644
+--- a/node_modules/svelte/internal/index.js
++++ b/node_modules/svelte/internal/index.js
+@@ -183,7 +183,9 @@ function insert(target, node, anchor) {
+     target.insertBefore(node, anchor || null);
+ }
+ function detach(node) {
+-    node.parentNode.removeChild(node);
++    if(node.parentNode){
++        node.parentNode.removeChild(node);
++    }
+ }
+ function destroy_each(iterations, detaching) {
+     for (let i = 0; i < iterations.length; i += 1) {
+diff --git a/node_modules/svelte/internal/index.mjs b/node_modules/svelte/internal/index.mjs
+index 9d64fcc..5e6c32a 100644
+--- a/node_modules/svelte/internal/index.mjs
++++ b/node_modules/svelte/internal/index.mjs
+@@ -179,7 +179,9 @@ function insert(target, node, anchor) {
+     target.insertBefore(node, anchor || null);
+ }
+ function detach(node) {
+-    node.parentNode.removeChild(node);
++    if(node.parentNode){
++        node.parentNode.removeChild(node);
++    }
+ }
+ function destroy_each(iterations, detaching) {
+     for (let i = 0; i < iterations.length; i += 1) {
