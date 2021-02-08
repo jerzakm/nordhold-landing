@@ -5,7 +5,6 @@
   import BrandQualities from '../components/Home/BrandQualities.svelte'
   import BrandStats from '../components/Home/BrandStats.svelte'
   import CategoryPreview from '../components/Home/CategoryPreview.svelte'
-  import CategoryPreview2 from '../components/Home/CategoryPreview2.svelte'
   import TestimonialScroll from '../components/Home/TestimonialScroll.svelte'
 </script>
 
@@ -18,10 +17,9 @@
 </svelte:head>
 
 <HeroCarousel/>
-<!-- <TestimonialScroll/> -->
-<!-- <CategoryPreview categoryName={"Fotele obrotowe"}/> -->
-<!-- <BrandQualities/> -->
-<!-- <CategoryPreview categoryName={"Fotele obrotowe"}/> -->
-<!-- <CategoryPreview2 categoryName={"Biurka"}/> -->
-<!-- <BrandStats/> -->
-<!-- <NewsletterSignup/> -->
+<TestimonialScroll/>
+<CategoryPreview categoryName={"Fotele obrotowe"} series={"00 | Seria Ergo"}/>
+<BrandQualities/>
+<CategoryPreview categoryName={"Biurka"} series={"01 | Seria Gaming"}/>
+<BrandStats/>
+<NewsletterSignup/>

@@ -6,8 +6,8 @@
   }
 </style>
 
-<section class="text-gray-600 body-font px-24 py-0 overflow-hidden ">
-  <div class="container flex flex-col lg:flex-row items-center justify-center">
+<section class="text-gray-600 body-font px-6 md:px-12 xxl:px-32 py-0 overflow-hidden ">
+  <div class="container flex flex-col md:flex-row items-center justify-center">
 
     <div class="flex items-center lg:w-3/5 pb-6 mb-6  sm:flex-row flex-col">
       <div class="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full  text-black flex-shrink-0">
