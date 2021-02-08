@@ -2,6 +2,7 @@
   import { onMount } from 'svelte'
 
   import Search32 from "carbon-icons-svelte/lib/Search32";
+  import Umbrella20 from "carbon-icons-svelte/lib/Umbrella20";
 
   export let segment
 
@@ -68,12 +69,12 @@
 
 </style>
 
-<nav class="fixed md:relative flex md:items-center md:justify-between z-50 mt-4 px-6 md:px-12 xxl:px-32 bottom-0 bg-white md:bg-transparent w-full py-8 md:py-0">
+<nav class="fixed md:relative flex md:items-center md:justify-between z-50 mt-4 px-6 md:px-12 xxl:px-32 bottom-0 bg-white md:bg-transparent w-full pt-4 pb-6 md:py-0">
   <a href=".">
     <img src="nordhold_logo.png" alt="Logo Nordhold" class="logo hidden md:block">
   </a>
-  <ul class="z-50 flex justify-between content-between md:justify-center flex-row w-full" bind:this={navList}>
-    {#each Object.keys(navMap) as route}
+  <ul class="z-50 flex justify-around content-around flex-row w-full max-w-xl md:mt-8" bind:this={navList}>
+    {#each Object.keys(navMap) as route, i}
       <li
         class="lg:p-0
         p-1 z-40">
@@ -82,7 +83,10 @@
           aria-current={segment === `${route}` ? 'page' : undefined}
           href={route}
           class="lg:mr-12 tracking-wider">
-          {navMap[route]}
+          <div class="flex flex-col items-center">
+            <Umbrella20 style="width: 8vw; height: 8vw;" class="block md:hidden"/>
+            {navMap[route]}
+          </div>
         </a>
       </li>
     {/each}
@@ -90,7 +94,7 @@
 
   <searchbox class=" hidden md:block">
       <div class="bg-white flex items-center rounded-full shadow-2xl">
-        <input class="rounded-l-full w-full py-2 px-6 text-gray-800 leading-tight focus:outline-none" type="text" placeholder="Wyszukaj">
+        <input class="rounded-l-full w-full py-2 px-6 text-gray-800 leading-tight focus:outline-none hidden xxl:block" type="text" placeholder="Wyszukaj">
 
         <div class="p-4">
           <button class="bg-black text-white rounded-full p-2 hover:bg-red-600 focus:outline-none w-12 h-12 flex items-center justify-center">
