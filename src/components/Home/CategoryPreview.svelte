@@ -37,7 +37,7 @@
       <div class="flex flex-col xxl:flex-row">
         <div class="text-gray-500 uppercase raleway text-2xl rotate-category whitespace-no-wrap" style="letter-spacing: 0.5em;">{series}</div>
         <!-- <div class="flex flex-no-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 justify-between"> -->
-          <Carousel perPage={{ 1600: 5, 1200: 4, 1000:3, 540:2, 0:1 }} autoplay={0} duration=600 ease="easeOutCubic" dots={false}>
+          <Carousel perPage={{ 1600: 5, 1200: 4, 1000:3, 540:2, 0:1 }} autoplay={0} duration=600 dots={false}>
           {#each {length: 16} as slide, i}
 
             <card class="slide-content">

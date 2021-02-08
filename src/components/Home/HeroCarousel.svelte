@@ -27,7 +27,7 @@
 </style>
 
 
-<Carousel perPage=1 autoplay=4000 duration=600 ease="easeOutCubic">
+<Carousel perPage=1 autoplay=4000 duration=600 dots={false}>
     <span class="control" slot="left-control">
         <ArrowLeft32 class="text-gray-700 hover:text-black" />
     </span>
