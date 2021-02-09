@@ -6,6 +6,13 @@
 
   export let segment
 
+  // const navMap = {
+  //   chairs: 'Fotele',
+  //   desks: 'Biurka',
+  //   support: 'Wsparcie',
+  //   contact: 'Kontakt'
+  // }
+
   const navMap = {
     chairs: 'Fotele',
     desks: 'Biurka',
@@ -13,8 +20,16 @@
     contact: 'Kontakt'
   }
 
+  const subroutes = {
+    chairs: {
+      gaming: 'Gaming',
+      ergo: 'Ergo'
+    }
+  }
+
   let navList
   let width = 9999
+  let dropdown
 
 
 
@@ -66,8 +81,21 @@
     width: 20rem;
   }
 
+  .dropdown{
+    transition: ease-in 400ms;
+  }
+  .dropdown-visible {
+    opacity: 1;
+  }
+  .dropdown-hidden {
+    opacity: 0;
+  }
+
+
 
 </style>
+
+
 
 <nav class="fixed md:relative flex md:items-center md:justify-between z-50 mt-4 px-6 md:px-12 xxl:px-32 bottom-0 bg-white md:bg-transparent w-full pt-4 pb-6 md:py-0">
   <a href=".">
@@ -77,7 +105,14 @@
     {#each Object.keys(navMap) as route, i}
       <li
         class="lg:p-0
-        p-1 z-40">
+        p-1 z-40"
+        on:mouseleave={()=> {
+          dropdown = undefined
+        }}
+        on:mouseover={()=> {
+          dropdown = route
+        }}
+        >
         <a
           rel="prefetch"
           aria-current={segment === `${route}` ? 'page' : undefined}
@@ -88,6 +123,15 @@
             {navMap[route]}
           </div>
         </a>
+        {#if subroutes[`${route}`]}
+          <ul class={`bg-white shadow-2xl absolute dropdown -mt-64 md:mt-6 lg:-mt-6 flex flex-col ${dropdown==route? 'dropdown-visible block':'dropdown-hidden hidden'} py-3`}>
+            {#each Object.keys(subroutes[`${route}`]) as subroute, i}
+              <li class="px-6 py-6 ">
+                <a href={`${route}/${subroute}`}>{subroutes[`${route}`][`${subroute}`]}</a>
+              </li>
+            {/each}
+          </ul>
+        {/if}
       </li>
     {/each}
   </ul>
