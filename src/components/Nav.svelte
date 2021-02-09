@@ -127,7 +127,7 @@
           <ul class={`bg-white shadow-2xl absolute dropdown -mt-64 md:mt-6 lg:-mt-6 flex flex-col ${dropdown==route? 'dropdown-visible block':'dropdown-hidden hidden'} py-3`}>
             {#each Object.keys(subroutes[`${route}`]) as subroute, i}
               <li class="px-6 py-6 ">
-                <a href={`${route}/${subroute}`}>{subroutes[`${route}`][`${subroute}`]}</a>
+                <a href={`${route}?type=${subroute}`}>{subroutes[`${route}`][`${subroute}`]}</a>
               </li>
             {/each}
           </ul>
