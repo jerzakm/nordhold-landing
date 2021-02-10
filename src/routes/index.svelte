@@ -16,10 +16,13 @@
   <title>Nordhold</title>
 </svelte:head>
 
-<HeroCarousel/>
-<TestimonialScroll/>
-<CategoryPreview categoryName={"Fotele obrotowe"} series={"00 | Seria Ergo"}/>
-<BrandQualities/>
-<CategoryPreview categoryName={"Biurka"} series={"01 | Seria Gaming"}/>
-<BrandStats/>
-<NewsletterSignup/>
+
+<TransitionWrapper>
+  <HeroCarousel/>
+  <TestimonialScroll/>
+  <CategoryPreview categoryName={"Fotele obrotowe"} series={"00 | Seria Ergo"}/>
+  <BrandQualities/>
+  <CategoryPreview categoryName={"Biurka"} series={"01 | Seria Gaming"}/>
+  <BrandStats/>
+  <NewsletterSignup/>
+</TransitionWrapper>

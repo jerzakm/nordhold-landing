@@ -53,7 +53,7 @@
                     </p>
                     <div class="w-full flex content-end">
                         <a
-                    href="."
+                    href="chairs/skadi"
                     class="bg-black rounded-full px-2 xl:px-10 py-1 md:py-6 text-sm md:text-2xl text-white mt-2 xl:mt-16
                     flex">
                     <ArrowRight32 class="mr-2 hidden md:block" />

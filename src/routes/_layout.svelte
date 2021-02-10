@@ -22,4 +22,4 @@
   <slot />
 </main>
 
-<!-- <Footer /> -->
+<Footer />
