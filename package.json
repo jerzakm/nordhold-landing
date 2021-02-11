@@ -19,7 +19,8 @@
     "polka": "next",
     "sirv": "^0.4.0",
     "tailwindcss-neumorphism": "^0.1.0",
-    "three": "^0.125.2"
+    "three": "^0.125.2",
+    "yaml": "^2.0.0-3"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

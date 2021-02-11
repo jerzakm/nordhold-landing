@@ -2,6 +2,10 @@
     import Carousel from '@beyonk/svelte-carousel'
     import ArrowRight32 from 'carbon-icons-svelte/lib/ArrowRight32'
     import ArrowLeft32 from 'carbon-icons-svelte/lib/ArrowLeft32'
+
+    export let data = []
+
+    console.log(data)
 </script>
 
 <style>
@@ -32,7 +36,7 @@
         <ArrowLeft32 class="text-gray-700 hover:text-black" />
     </span>
 
-    {#each {length: 5} as g}
+    {#each data as entry}
         <div class="slide-content">
             <section class="flex flex-col-reverse md:grid md:grid-cols-2 md:gap-2 mt-8 px-6 md:px-12 xxl:px-32">
                 <div class="">
@@ -43,21 +47,21 @@
                 </div>
                 <div class="flex flex-col justify-around z-10">
                 <div class="flex flex-col items-start ">
-                    <h2 class="uppercase raleway ml-1 text-base xl:text-2xl">Seria Ergo</h2>
+                    <h2 class="uppercase raleway ml-1 text-base xl:text-2xl">{entry.subtitle.pl}</h2>
                     <h1 class="whitespace-no-wrap">
-                    Skadi
+                    {entry.title.pl}
                     </h1>
 
                     <p class="text-gray-800 xl:text-2xl p-2 mt-2 xl:mt-8">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe a aspernatur neque architecto itaque dolorum ratione laudantium excepturi est deleniti?
+                    {entry.description.pl}
                     </p>
                     <div class="w-full flex content-end">
                         <a
-                    href="chairs/skadi"
+                    href={entry.link}
                     class="bg-black rounded-full px-2 xl:px-10 py-1 md:py-6 text-sm md:text-2xl text-white mt-2 xl:mt-16
                     flex">
                     <ArrowRight32 class="mr-2 hidden md:block" />
-                    Przejdź do produktu
+                    {entry.linkText.pl}
                     </a>
                     </div>
                 </div>
