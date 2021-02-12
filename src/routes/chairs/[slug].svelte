@@ -21,6 +21,7 @@
   export let data
 
   let variantChosen = 0
+  let activeImage = 0
 
 
 
@@ -30,8 +31,15 @@
       <section class="text-gray-700 body-font overflow-hidden">
           <div class="container py-24 pb-6 ">
             <div class="mx-auto flex flex-wrap">
-              <div class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center ">
-                  <img alt="ecommerce" class="w-3/4 mx-auto shadow-2xl" src={`img/${data.slug}/${data.variants[variantChosen].images[0]}.jpg`}>
+              <div class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center flex flex-col">
+                  <img alt="ecommerce" class="w-3/4 mx-auto shadow-2xl" src={`img/${data.slug}/${data.variants[variantChosen].images[activeImage]}.jpg`}>
+                  <gallery class="grid grid-cols-5 gap-3 mt-4 w-3/4 mx-auto">
+                    {#each data.variants[variantChosen].images as img,i}
+                      <button on:click={()=> activeImage = i}>
+                        <img alt="ecommerce" src={`img/${data.slug}/${data.variants[variantChosen].images[i]}.jpg`}>
+                      </button>
+                    {/each}
+                  </gallery>
               </div>
               <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                 <h2 class="text-md title-font text-gray-500 tracking-widest">{data.series.pl}</h2>
@@ -51,8 +59,11 @@
                   <div class="flex">
                     <span class="mr-3">Kolor</span>
                     {#each data.variants as variant, variantIndex}
-                      <button class={`border-2 border-gray-300 ml-1 bg-${colorDictionary[variant.color]} rounded-full w-6 h-6 focus:outline-none`}
-                        on:click={()=> variantChosen = variantIndex}
+                      <button class={`border-2 border-gray-300 ml-1 bg-${colorDictionary[variant.color]} rounded-full w-6 h-6 focus:outline-none hover:scale-150 transform duration-150`}
+                        on:click={()=> {
+                          variantChosen = variantIndex
+                          activeImage = 0
+                        }}
                       />
                     {/each}
                   </div>
