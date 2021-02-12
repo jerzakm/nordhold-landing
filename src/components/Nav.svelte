@@ -3,6 +3,7 @@
 
   import Search32 from "carbon-icons-svelte/lib/Search32";
   import Umbrella20 from "carbon-icons-svelte/lib/Umbrella20";
+  import Language from './Language.svelte'
 
   export let segment
 
@@ -137,7 +138,7 @@
   </ul>
 
   <searchbox class=" hidden md:block">
-      <div class="bg-white flex items-center rounded-full shadow-2xl">
+      <div class="bg-white flex items-center rounded-full shadow-2xl ">
         <input class="rounded-l-full w-full py-2 px-6 text-gray-800 leading-tight focus:outline-none hidden xxl:block" type="text" placeholder="Wyszukaj">
 
         <div class="p-4">
@@ -150,3 +151,6 @@
   </searchbox>
 
 </nav>
+
+
+<Language/>

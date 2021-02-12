@@ -17,13 +17,20 @@
   import TransitionWrapper from '../../components/animations/TransitionWrapper.svelte'
   import { colorDictionary } from '../../constants/colorDictionary'
   import { specsDictionary } from '../../constants/specsDictionary'
+  import { languageStore } from '../../stores.js'
+  import {onMount} from 'svelte'
 
   export let data
 
   let variantChosen = 0
   let activeImage = 0
+  let language = 'pl'
 
-
+  onMount(()=> {
+    languageStore.subscribe((lang) => {
+      language = lang
+    })
+  })
 
 </script>
 <TransitionWrapper>
@@ -42,7 +49,7 @@
                   </gallery>
               </div>
               <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                <h2 class="text-md title-font text-gray-500 tracking-widest">{data.series.pl}</h2>
+                <h2 class="text-md title-font text-gray-500 tracking-widest">{data.series[language]}</h2>
                 <h1 class="text-gray-900 text-5xl title-font font-medium mb-1" style="font-weight: 700;">{data.name}</h1>
                 <div class="flex mb-4">
                   <span class="flex items-center">
@@ -54,7 +61,7 @@
                     <span class="text-gray-600 ml-3">({data.testimonials.length})</span>
                   </span>
                 </div>
-                <p class="leading-relaxed">{data.description.pl}</p>
+                <p class="leading-relaxed">{data.description[language]}</p>
                 <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-400 mb-5">
                   <div class="flex">
                     <span class="mr-3">Kolor</span>
@@ -75,7 +82,7 @@
 
                 <div class="grid grid-cols-2 py-8 text-gray-900">
                   {#each Object.keys(data.specs) as specKey,i}
-                      <span class="text-gray-700 pb-1 tracking-wide">{specsDictionary[specKey].pl}:</span>
+                      <span class="text-gray-700 pb-1 tracking-wide">{specsDictionary[specKey][language]}:</span>
                       <span class="text-gray-800 pb-1">{data.specs[specKey]}</span>
                   {/each}
                 </div>
