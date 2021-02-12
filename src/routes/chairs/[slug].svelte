@@ -51,7 +51,7 @@
                   <gallery class="grid grid-cols-5 gap-3 mt-4 w-3/4 mx-auto">
                     {#each data.variants[variantChosen].images as img,i}
                       <button on:click={()=> activeImage = i} class={`focus:outline-none duration-500 ${activeImage==i? 'activeGalleryImage':''}`}>
-                        <img alt={`${data.name} ${i+1}`} src={`img/${data.slug}/${data.variants[variantChosen].images[i]}.jpg`}>
+                        <img alt={`${data.name} ${i+1}`} src={`img/${data.slug}/200/${data.variants[variantChosen].images[i]}.jpg`}>
                       </button>
                     {/each}
                   </gallery>
