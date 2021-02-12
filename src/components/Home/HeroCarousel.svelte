@@ -4,8 +4,6 @@
     import ArrowLeft32 from 'carbon-icons-svelte/lib/ArrowLeft32'
 
     export let data = []
-
-    console.log(data)
 </script>
 
 <style>
@@ -41,8 +39,8 @@
             <section class="flex flex-col-reverse md:grid md:grid-cols-2 md:gap-2 mt-8 px-6 md:px-12 xxl:px-32">
                 <div class="">
                     <img
-                        src="z.png"
-                        alt="skadi"
+                        src={`${entry.img}.jpg`}
+                        alt={`${entry.title.en} - ${entry.subtitle.en} image`}
                         class="hero mt-8 block " />
                 </div>
                 <div class="flex flex-col justify-around z-10">

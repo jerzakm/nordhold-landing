@@ -1,0 +1,58 @@
+name: Skadi
+price: 499
+manual:
+  pl: "manual.jpg"
+  en: "manual.jpg"
+slug: skadi
+variants:
+  - color: black
+    colorName:
+      pl: Czarny
+      en: Black
+    symbol: NH-SKD-BL
+    ean: 5907546085018
+    images:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+  - color: Gray
+    colorName:
+        pl: Szary
+        en: Gray
+    symbol: NH-SKD-GR
+    ean: 5907546085025
+    images:
+      - 10
+      - 11
+      - 12
+      - 13
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+  - color: Red
+    colorName:
+        pl: Czerwony
+        en: Red
+    symbol: NH-SKD-R
+    ean: 5907546085032
+    images:
+      - 14
+      - 15
+      - 16
+      - 17
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
