@@ -19,6 +19,7 @@
   import { specsDictionary } from '../../constants/specsDictionary'
   import { languageStore } from '../../stores.js'
   import {onMount} from 'svelte'
+  import Image from '../../components/Image.svelte'
 
   export let data
 
@@ -47,11 +48,12 @@
           <div class="container py-24 pb-6 ">
             <div class="mx-auto flex flex-wrap">
               <div class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center flex flex-col">
-                  <img alt={`${data.name} ${activeImage+1}`} class="w-3/4 mx-auto shadow-2xl" src={`img/${data.slug}/${data.variants[variantChosen].images[activeImage]}.jpg`}>
+                  <!-- <img alt={`${data.name} ${activeImage+1}`} class="w-3/4 mx-auto shadow-2xl" src={`img/${data.slug}/1400/${data.variants[variantChosen].images[activeImage]}.jpg`}> -->
+                  <Image desc={`${data.name} ${activeImage+1}`} style="w-3/4 mx-auto shadow-2xl" imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[activeImage]}`}/>
                   <gallery class="grid grid-cols-5 gap-3 mt-4 w-3/4 mx-auto">
                     {#each data.variants[variantChosen].images as img,i}
                       <button on:click={()=> activeImage = i} class={`focus:outline-none duration-500 ${activeImage==i? 'activeGalleryImage':''}`}>
-                        <img alt={`${data.name} ${i+1}`} src={`img/${data.slug}/200/${data.variants[variantChosen].images[i]}.jpg`}>
+                        <Image desc={`${data.name} ${i+1}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[i]}`}/>
                       </button>
                     {/each}
                   </gallery>

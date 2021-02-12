@@ -2,6 +2,7 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path')
 
+
 const sizes = [100, 200, 400, 600, 800, 1000, 1200, 1400]
 
 processImages()
@@ -36,17 +37,14 @@ function processImage(dir,file){
         if (!fs.existsSync(`${newDir}`)){
             fs.mkdirSync(`${newDir}`);
         }
-        if (!fs.existsSync(`${newDir}/${size}`)){
-            fs.mkdirSync(`${newDir}/${size}`);
-        }
         sharp(`${dir}/${file}`)
             .resize(size)
             .webp({quality: 90})
-            .toFile(`${newDir}/${size}/${fileName}.webp`, (err, info) => { if(err) console.log(err) });
+            .toFile(`${newDir}/${fileName}_${size}.webp`, (err, info) => { if(err) console.log(err) });
 
         sharp(`${dir}/${file}`)
             .resize(size)
             .jpeg({quality: 90})
-            .toFile(`${newDir}/${size}/${fileName}.jpg`, (err, info) => { if(err) console.log(err) });
+            .toFile(`${newDir}/${fileName}_${size}.jpg`, (err, info) => { if(err) console.log(err) });
     }
 }
