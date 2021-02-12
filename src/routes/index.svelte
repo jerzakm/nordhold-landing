@@ -4,13 +4,10 @@
 
 	export async function preload(page, session) {
 
-		const testimonialsRes = await this.fetch(`content/home/testimonials.yaml`);
+		const testimonialsRes = await this.fetch(`content/home.yaml`);
     const testimonialsYaml = await testimonialsRes.text()
-    const testimonials = YAML.parse(testimonialsYaml)
+    const {testimonials, heroCarousel} = YAML.parse(testimonialsYaml)
 
-    const heroCarouselRes = await this.fetch(`content/home/heroCarousel.yaml`);
-    const heroCarouselYaml = await heroCarouselRes.text()
-    const heroCarousel = YAML.parse(heroCarouselYaml)
 
 
     return {testimonials, heroCarousel}
