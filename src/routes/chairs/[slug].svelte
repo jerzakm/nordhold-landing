@@ -33,17 +33,25 @@
   })
 
 </script>
+
+<style>
+  .activeGalleryImage {
+    box-shadow: -1px 1px 10px 3px rgba(67,169,255,0.52);
+  }
+</style>
+
+
 <TransitionWrapper>
   <div class="px-6 md:px-12 xxl:px-32">
       <section class="text-gray-700 body-font overflow-hidden">
           <div class="container py-24 pb-6 ">
             <div class="mx-auto flex flex-wrap">
               <div class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center flex flex-col">
-                  <img alt="ecommerce" class="w-3/4 mx-auto shadow-2xl" src={`img/${data.slug}/${data.variants[variantChosen].images[activeImage]}.jpg`}>
+                  <img alt={`${data.name} ${activeImage+1}`} class="w-3/4 mx-auto shadow-2xl" src={`img/${data.slug}/${data.variants[variantChosen].images[activeImage]}.jpg`}>
                   <gallery class="grid grid-cols-5 gap-3 mt-4 w-3/4 mx-auto">
                     {#each data.variants[variantChosen].images as img,i}
-                      <button on:click={()=> activeImage = i}>
-                        <img alt="ecommerce" src={`img/${data.slug}/${data.variants[variantChosen].images[i]}.jpg`}>
+                      <button on:click={()=> activeImage = i} class={`focus:outline-none duration-500 ${activeImage==i? 'activeGalleryImage':''}`}>
+                        <img alt={`${data.name} ${i+1}`} src={`img/${data.slug}/${data.variants[variantChosen].images[i]}.jpg`}>
                       </button>
                     {/each}
                   </gallery>
@@ -66,7 +74,7 @@
                   <div class="flex">
                     <span class="mr-3">Kolor</span>
                     {#each data.variants as variant, variantIndex}
-                      <button class={`border-2 border-gray-300 ml-1 bg-${colorDictionary[variant.color]} rounded-full w-6 h-6 focus:outline-none hover:scale-150 transform duration-150`}
+                      <button class={`border-2 focus:outline-none border-gray-300 ml-1 bg-${colorDictionary[variant.color]} rounded-full w-6 h-6 focus:outline-none hover:scale-150 transform duration-150`}
                         on:click={()=> {
                           variantChosen = variantIndex
                           activeImage = 0
