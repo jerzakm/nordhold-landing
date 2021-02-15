@@ -15,6 +15,7 @@
 
 <script>
   import TransitionWrapper from '../../components/animations/TransitionWrapper.svelte'
+  import IntersectionObserver from '../../components/IntersectionObserver.svelte'
   import { colorDictionary } from '../../constants/colorDictionary'
   import { specsDictionary } from '../../constants/specsDictionary'
   import { languageStore } from '../../stores.js'
@@ -106,32 +107,36 @@
 
 
         <section>
-          <div class="container mx-auto flex flex-wrap mb-8">
-            <div class="flex flex-wrap md:-m-2 -m-1">
-              <div class="flex flex-wrap w-1/2">
-                <div class="md:p-2 p-1 w-1/2 ">
-                  <img alt="gallery" class="object-cover w-full h-full shadow-2xl block" src={`img/${data.slug}/${data.variants[variantChosen].images[6]}.jpg`}>
-                </div>
-                <div class="md:p-2 p-1 w-1/2 ">
-                  <img alt="gallery" class="object-cover w-full h-full shadow-2xl  block" src={`img/${data.slug}/${data.variants[variantChosen].images[3]}.jpg`}>
-                </div>
-                <div class="md:p-2 p-1 w-full ">
-                  <img alt="gallery" class="object-cover w-full h-full shadow-2xl  block" src={`img/${data.slug}/${data.variants[variantChosen].images[5]}.jpg`}>
+          <IntersectionObserver once={true} let:intersecting={intersecting}>
+            {#if intersecting}
+              <div class="container mx-auto flex flex-wrap mb-8">
+                <div class="flex flex-wrap md:-m-2 -m-1">
+                  <div class="flex flex-wrap w-1/2">
+                    <div class="md:p-2 p-1 w-1/2 ">
+                      <Image fullSize style={"object-cover w-full h-full shadow-2xl block"} desc={`${data.name}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[6]}`}/>
+                    </div>
+                    <div class="md:p-2 p-1 w-1/2 ">
+                      <Image fullSize style={"object-cover w-full h-full shadow-2xl block"} desc={`${data.name}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[3]}`}/>
+                    </div>
+                    <div class="md:p-2 p-1 w-full ">
+                      <Image fullSize style={"object-cover w-full h-full shadow-2xl  block"} desc={`${data.name}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[6]}`}/>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap w-1/2">
+                    <div class="md:p-2 p-1 w-full">
+                      <Image fullSize style={"object-cover w-full h-full shadow-2xl  block"} desc={`${data.name}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[1]}`}/>
+                    </div>
+                    <div class="md:p-2 p-1 w-1/2 ">
+                      <Image fullSize style={"object-cover w-full h-full shadow-2xl  block"} desc={`${data.name}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[4]}`}/>
+                    </div>
+                    <div class="md:p-2 p-1 w-1/2 ">
+                      <Image fullSize style={"object-cover w-full h-full shadow-2xl  block"} desc={`${data.name}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[2]}`}/>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="flex flex-wrap w-1/2">
-                <div class="md:p-2 p-1 w-full">
-                  <img alt="gallery" class="object-cover w-full h-full shadow-2xl  block" src={`img/${data.slug}/${data.variants[variantChosen].images[1]}.jpg`}>
-                </div>
-                <div class="md:p-2 p-1 w-1/2 ">
-                  <img alt="gallery" class="object-cover w-full h-full shadow-2xl  block" src={`img/${data.slug}/${data.variants[variantChosen].images[4]}.jpg`}>
-                </div>
-                <div class="md:p-2 p-1 w-1/2 ">
-                  <img alt="gallery" class="object-cover w-full h-full shadow-2xl  block" src={`img/${data.slug}/${data.variants[variantChosen].images[2]}.jpg`}>
-                </div>
-              </div>
-            </div>
-          </div>
+            {/if}
+          </IntersectionObserver>
         </section>
   </div>
 </TransitionWrapper>

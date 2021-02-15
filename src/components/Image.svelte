@@ -3,8 +3,9 @@
     import { onMount } from 'svelte'
 
     export let imgSrc
-    export let desc
-    export let style
+    export let desc = ''
+    export let style = ''
+    export let fullSize = false
 
     let image = imageConfig.placeholder
 
@@ -20,29 +21,28 @@
     function renderImage(){
         if(changeCount>0){
             const width = el.getBoundingClientRect().width
+            console.log(width)
             const sizes = [...imageConfig.sizes].reverse()
-            for(let i =0; i< sizes.length;i++) {
-                if(sizes[i]>=width){
-                    jpgSrc = `${imgSrc}_${sizes[i]}.jpg`
-                    webpSrc = `${imgSrc}_${sizes[i]}.webp`
-                }
-            }
-            if(!jpgSrc&&!webpSrc){
+            if(fullSize){
                 jpgSrc = `${imgSrc}_${sizes[0]}.jpg`
                 webpSrc = `${imgSrc}_${sizes[0]}.webp`
+            } else {
+                for(let i =0; i< sizes.length;i++) {
+                    if(sizes[i]>=width){
+                        jpgSrc = `${imgSrc}_${sizes[i]}.jpg`
+                        webpSrc = `${imgSrc}_${sizes[i]}.webp`
+                    }
+                }
+                if(!jpgSrc&&!webpSrc){
+                    jpgSrc = `${imgSrc}_${sizes[0]}.jpg`
+                    webpSrc = `${imgSrc}_${sizes[0]}.webp`
+                }
             }
         }
         changeCount++
     }
 
     onMount(()=> {
-        // const resizeObserver = new ResizeObserver(entries => {
-
-        // console.log('Size changed');
-        // console.log(el.getBoundingClientRect())
-        // });
-
-        // resizeObserver.observe(el);
         renderImage()
     })
 
