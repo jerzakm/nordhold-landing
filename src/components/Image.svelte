@@ -20,25 +20,24 @@
 
     function renderImage(){
         if(changeCount>0){
-            const width = el.getBoundingClientRect().width
-            console.log(width)
+            let width = el.getBoundingClientRect().width
+
             const sizes = [...imageConfig.sizes].reverse()
             if(fullSize){
-                jpgSrc = `${imgSrc}_${sizes[0]}.jpg`
-                webpSrc = `${imgSrc}_${sizes[0]}.webp`
-            } else {
-                for(let i =0; i< sizes.length;i++) {
-                    if(sizes[i]>=width){
-                        jpgSrc = `${imgSrc}_${sizes[i]}.jpg`
-                        webpSrc = `${imgSrc}_${sizes[i]}.webp`
-                    }
+                width = window.innerWidth > window.innerHeight? window.innerWidth : window.innerHeight
+            }
+
+            for(let i =0; i< sizes.length;i++) {
+                if(sizes[i]>=width){
+                    jpgSrc = `${imgSrc}_${sizes[i]}.jpg`
+                    webpSrc = `${imgSrc}_${sizes[i]}.webp`
+                }
                 }
                 if(!jpgSrc&&!webpSrc){
                     jpgSrc = `${imgSrc}_${sizes[0]}.jpg`
                     webpSrc = `${imgSrc}_${sizes[0]}.webp`
                 }
             }
-        }
         changeCount++
     }
 

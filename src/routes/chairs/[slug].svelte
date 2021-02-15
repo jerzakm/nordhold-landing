@@ -9,6 +9,10 @@
     const yaml = await response.text()
     const data = YAML.parse(yaml)
 
+    const jsonRes = await this.fetch(page.path+'.json')
+    const jsonP = await jsonRes.json()
+    console.log(jsonP)
+
     return {data}
 	}
 </script>
