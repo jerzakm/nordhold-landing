@@ -27,7 +27,6 @@ export async function get(req, res, next) {
                     color{hex},colorName, symbol, ean,
                     images(locales: [en]){
                     id,
-                    url,
                     fileName
                     }
                 }
