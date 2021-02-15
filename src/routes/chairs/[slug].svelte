@@ -9,11 +9,12 @@
     const yaml = await response.text()
     const data = YAML.parse(yaml)
 
-    const jsonRes = await this.fetch(page.path+'.json')
-    const jsonP = await jsonRes.json()
-    console.log(jsonP)
+    const productRes = await this.fetch(page.path+'.json')
+    const productData = await productRes.json()
 
-    return {data}
+
+
+    return {data, productData}
 	}
 </script>
 
@@ -27,12 +28,15 @@
   import Image from '../../components/Image.svelte'
 
   export let data
+  export let productData
 
   let variantChosen = 0
   let activeImage = 0
   let language = 'pl'
 
   onMount(()=> {
+    console.log(productData.en.product)
+
     languageStore.subscribe((lang) => {
       language = lang
     })
@@ -44,6 +48,15 @@
   .activeGalleryImage {
     box-shadow: -1px 1px 10px 3px rgba(67,169,255,0.52);
   }
+
+  :global(p#product-description > ul li::before) {
+    content: "\2022";
+    color: #121212;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+
 </style>
 
 
@@ -64,24 +77,25 @@
                   </gallery>
               </div>
               <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                <h2 class="text-md title-font text-gray-500 tracking-widest">{data.series[language]}</h2>
-                <h1 class="text-gray-900 text-5xl title-font font-medium mb-1" style="font-weight: 700;">{data.name}</h1>
+                <h2 class="text-md title-font text-gray-500 tracking-widest">{productData[language].product.series}</h2>
+                <h1 class="text-gray-900 text-5xl title-font font-medium mb-1" style="font-weight: 700;">{productData[language].product.name}</h1>
                 <div class="flex mb-4">
                   <span class="flex items-center">
-                    {#each {length: data.rating} as g,i}
+                    <!-- TODO - TESTIMONIAL LINK AND START AVG COUNTER !! -->
+                    {#each {length: 5} as g,i}
                       <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24">
                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                       </svg>
                     {/each}
-                    <span class="text-gray-600 ml-3">({data.testimonials.length})</span>
+                    <span class="text-gray-600 ml-3">({productData[language].product.testimonials.length})</span>
                   </span>
                 </div>
-                <p class="leading-relaxed">{data.description[language]}</p>
+                <p class="leading-relaxed" id="product-description">{@html productData[language].product.description}</p>
                 <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-400 mb-5">
                   <div class="flex">
                     <span class="mr-3">Kolor</span>
-                    {#each data.variants as variant, variantIndex}
-                      <button class={`border-2 focus:outline-none border-gray-300 ml-1 bg-${colorDictionary[variant.color]} rounded-full w-6 h-6 focus:outline-none hover:scale-150 transform duration-150`}
+                    {#each productData[language].product.productVariants as variant, variantIndex}
+                      <button class={`border-2 border-gray-300 ml-1 rounded-full w-6 h-6 focus:outline-none hover:scale-150 transform duration-150`} style={`background-color: ${variant.color.hex}`}
                         on:click={()=> {
                           variantChosen = variantIndex
                           activeImage = 0
