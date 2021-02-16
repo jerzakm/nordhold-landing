@@ -8,11 +8,14 @@ export async function get(req, res, next) {
 
     const { slug } = req.params;
 
-    const dbResponse = {}
-
+    const productData = {}
+    const variableLocales = {}
 
     for(const locale of ['en','pl']) {
-        const query = gql`
+        variableLocales[locale] = {}
+
+        //Product Query
+        const productQuery = gql`
             query MyQuery {
                 product(where: {slug: "${slug}"}, locales: [pl]) {
                     id, name, series, slug, price, description,
@@ -20,31 +23,46 @@ export async function get(req, res, next) {
                     id, text,rating,date, author, source
                 },
                 chairSpec{
-                    id, totalHeight, seatHeight, seatWidth, seatDepth, backWidth, backHeight, headrestWidth, headrestHeight, lumbarWidth, lumbarHeight, armrestWidth, armrestLength, adjustableHeadrest, adjustableLumbar,hasFootrest, adjustableBackrestHeight, adjustableBackrestPosition, baseDiameter
+                    totalHeight, seatHeight, seatWidth, seatDepth, backWidth, backHeight, headrestWidth, headrestHeight, lumbarWidth, lumbarHeight, armrestWidth, armrestLength, adjustableHeadrest, adjustableLumbar,hasFootrest, adjustableBackrestHeight, adjustableBackrestPosition, baseDiameter
                 },
                 productVariants{
                     id,
                     color{hex},colorName, symbol, ean,
                     images(locales: [en]){
-                    id,
-                    fileName
+                    id
                     }
                 }
                 }
             }
             `
-
-        dbResponse[locale] = await request(url, query)
+        productData[locale] = await request(url, productQuery)
         // TURNS cms markdown to html
-        const html = marked(dbResponse[locale].product.description);
-        dbResponse[locale].product.description = html
+        const html = marked(productData[locale].product.description);
+        productData[locale].product.description = html
+
+        //Locale Query
+        const localeQuery = gql`
+            query getLocale{
+                localeDictionaries(where: {variable_in:
+                [
+                    "totalHeight", "seatHeight", "seatWidth", "seatDepth", "backWidth", "backHeight", "headrestWidth", "headrestHeight", "lumbarWidth", "lumbarHeight", "armrestWidth", "armrestLength", "adjustableHeadrest", "adjustableLumbar", "hasFootrest", "adjustableBackrestHeight", "adjustableBackrestPosition", "baseDiameter"
+                ]
+                }, locales: [${locale}]){
+                variable, localizedText
+                }
+            }
+        `
+        const localeResponse = await request(url, localeQuery)
+        for(const entry of localeResponse.localeDictionaries){
+            variableLocales[locale][entry.variable] = entry.localizedText
+        }
     }
 
 
 
-	if (dbResponse !== null) {
+	if (productData !== null) {
 		res.setHeader('Content-Type', 'application/json');
-		res.end(JSON.stringify(dbResponse));
+		res.end(JSON.stringify({productData, variableLocales}));
 	} else {
 		next();
 	}

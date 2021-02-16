@@ -5,37 +5,34 @@
 
     const chairModel = page.params.slug
 
-    const response = await this.fetch(`content/chairs/${chairModel}.yaml`);
-    const yaml = await response.text()
-    const data = YAML.parse(yaml)
 
     const productRes = await this.fetch(page.path+'.json')
-    const productData = await productRes.json()
+    const {productData,variableLocales} = await productRes.json()
 
 
-
-    return {data, productData}
+    return { productData,variableLocales }
 	}
 </script>
 
 <script>
   import TransitionWrapper from '../../components/animations/TransitionWrapper.svelte'
   import IntersectionObserver from '../../components/IntersectionObserver.svelte'
-  import { colorDictionary } from '../../constants/colorDictionary'
-  import { specsDictionary } from '../../constants/specsDictionary'
+  import Checkmark24 from "carbon-icons-svelte/lib/Checkmark32";
+  import Close24 from "carbon-icons-svelte/lib/Close24";
   import { languageStore } from '../../stores.js'
   import {onMount} from 'svelte'
   import Image from '../../components/Image.svelte'
 
-  export let data
+
   export let productData
+  export let variableLocales
 
   let variantChosen = 0
   let activeImage = 0
   let language = 'pl'
 
   onMount(()=> {
-    console.log(productData.en.product)
+    console.log(variableLocales)
 
     languageStore.subscribe((lang) => {
       language = lang
@@ -67,11 +64,11 @@
             <div class="mx-auto flex flex-wrap">
               <div class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center flex flex-col">
                   <!-- <img alt={`${data.name} ${activeImage+1}`} class="w-3/4 mx-auto shadow-2xl" src={`img/${data.slug}/1400/${data.variants[variantChosen].images[activeImage]}.jpg`}> -->
-                  <Image desc={`${data.name} ${activeImage+1}`} style="w-3/4 mx-auto shadow-2xl" imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[activeImage]}`}/>
+                  <Image desc={`${productData[language].product.name} ${activeImage+1}`} style="w-3/4 mx-auto shadow-2xl" imgSrc={`img/${productData[language].product.productVariants[variantChosen].images[activeImage].id}`}/>
                   <gallery class="grid grid-cols-5 gap-3 mt-4 w-3/4 mx-auto">
-                    {#each data.variants[variantChosen].images as img,i}
+                    {#each productData[language].product.productVariants[variantChosen].images as img,i}
                       <button on:click={()=> activeImage = i} class={`focus:outline-none duration-500 ${activeImage==i? 'activeGalleryImage':''}`}>
-                        <Image desc={`${data.name} ${i+1}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[i]}`}/>
+                        <Image desc={`${productData[language].product.name} ${i+1}`} imgSrc={`img/${productData[language].product.productVariants[variantChosen].images[i].id}`}/>
                       </button>
                     {/each}
                   </gallery>
@@ -106,13 +103,24 @@
 
                 </div>
                 <div class="flex">
-                  <span class="title-font font-medium text-2xl text-gray-900">{data.price} zł</span>
+                  <span class="title-font font-medium text-2xl text-gray-900">{productData[language].product.price} zł</span>
                 </div>
 
                 <div class="grid grid-cols-2 py-8 text-gray-900">
-                  {#each Object.keys(data.specs) as specKey,i}
-                      <span class="text-gray-700 pb-1 tracking-wide">{specsDictionary[specKey][language]}:</span>
-                      <span class="text-gray-800 pb-1">{data.specs[specKey]}</span>
+                  {#each Object.keys(productData[language].product.chairSpec) as specKey,i}
+                      {#if productData[language].product.chairSpec[specKey] != null}
+                        <span class="text-gray-700 pb-1 tracking-wide">{variableLocales[language][specKey]}:</span>
+
+                        <span class="text-gray-800 pb-1">
+                        {#if productData[language].product.chairSpec[specKey] === true}
+                          <Checkmark24 />
+                        {:else if productData[language].product.chairSpec[specKey] === false}
+                          <Close24 />
+                        {:else}
+                          {productData[language].product.chairSpec[specKey]}
+                        {/if}
+                        </span>
+                      {/if}
                   {/each}
                 </div>
               </div>
@@ -131,24 +139,24 @@
                 <div class="flex flex-wrap md:-m-2 -m-1">
                   <div class="flex flex-wrap w-1/2">
                     <div class="md:p-2 p-1 w-1/2 ">
-                      <Image fullSize style={"object-cover w-full h-full shadow-2xl block"} desc={`${data.name}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[6]}`}/>
+                      <Image fullSize style={"object-cover w-full h-full shadow-2xl block"} desc={`${productData[language].product.name}`} imgSrc={`img/${productData[language].product.productVariants[variantChosen].images[5].id}`}/>
                     </div>
                     <div class="md:p-2 p-1 w-1/2 ">
-                      <Image fullSize style={"object-cover w-full h-full shadow-2xl block"} desc={`${data.name}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[3]}`}/>
+                      <Image fullSize style={"object-cover w-full h-full shadow-2xl block"} desc={`${productData[language].product.name}`} imgSrc={`img/${productData[language].product.productVariants[variantChosen].images[3].id}`}/>
                     </div>
                     <div class="md:p-2 p-1 w-full ">
-                      <Image fullSize style={"object-cover w-full h-full shadow-2xl  block"} desc={`${data.name}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[6]}`}/>
+                      <Image fullSize style={"object-cover w-full h-full shadow-2xl  block"} desc={`${productData[language].product.name}`} imgSrc={`img/${productData[language].product.productVariants[variantChosen].images[1].id}`}/>
                     </div>
                   </div>
                   <div class="flex flex-wrap w-1/2">
                     <div class="md:p-2 p-1 w-full">
-                      <Image fullSize style={"object-cover w-full h-full shadow-2xl  block"} desc={`${data.name}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[1]}`}/>
+                      <Image fullSize style={"object-cover w-full h-full shadow-2xl  block"} desc={`${productData[language].product.name}`} imgSrc={`img/${productData[language].product.productVariants[variantChosen].images[2].id}`}/>
                     </div>
                     <div class="md:p-2 p-1 w-1/2 ">
-                      <Image fullSize style={"object-cover w-full h-full shadow-2xl  block"} desc={`${data.name}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[4]}`}/>
+                      <Image fullSize style={"object-cover w-full h-full shadow-2xl  block"} desc={`${productData[language].product.name}`} imgSrc={`img/${productData[language].product.productVariants[variantChosen].images[6].id}`}/>
                     </div>
                     <div class="md:p-2 p-1 w-1/2 ">
-                      <Image fullSize style={"object-cover w-full h-full shadow-2xl  block"} desc={`${data.name}`} imgSrc={`img/${data.slug}/${data.variants[variantChosen].images[2]}`}/>
+                      <Image fullSize style={"object-cover w-full h-full shadow-2xl  block"} desc={`${productData[language].product.name}`} imgSrc={`img/${productData[language].product.productVariants[variantChosen].images[7].id}`}/>
                     </div>
                   </div>
                 </div>

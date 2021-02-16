@@ -44,7 +44,7 @@ async function getImages(){
 
         for(const size of sizes){
             console.log(`processing ${dir}/${file} size: ${size}`)
-            const newDir = `${dir}`
+            const newDir = `static/img`
             if (!fs.existsSync(`${newDir}`)){
                 fs.mkdirSync(`${newDir}`);
             }
