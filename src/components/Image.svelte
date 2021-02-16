@@ -18,13 +18,18 @@
 
     $: imgSrc && renderImage()
 
+    let windowWidth = 0
+
     function renderImage(){
         if(changeCount>0){
             let width = el.getBoundingClientRect().width
 
             const sizes = [...imageConfig.sizes].reverse()
+
+            windowWidth = window.innerHeight? window.innerWidth : window.innerHeight
+
             if(fullSize){
-                width = window.innerWidth > window.innerHeight? window.innerWidth : window.innerHeight
+                width = windowWidth
             }
 
             for(let i =0; i< sizes.length;i++) {
@@ -43,6 +48,11 @@
 
     onMount(()=> {
         renderImage()
+
+        window.addEventListener('resize', ()=> {
+            windowWidth = window.innerHeight? window.innerWidth : window.innerHeight
+            renderImage()
+        })
     })
 
 </script>

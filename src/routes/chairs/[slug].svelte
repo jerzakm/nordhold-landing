@@ -1,10 +1,6 @@
 <script context="module">
-  import YAML from 'YAML'
 
 	export async function preload(page) {
-
-    const chairModel = page.params.slug
-
 
     const productRes = await this.fetch(page.path+'.json')
     const {productData,variableLocales} = await productRes.json()
