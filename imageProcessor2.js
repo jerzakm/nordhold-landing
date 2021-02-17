@@ -7,26 +7,8 @@ const sizes = [100, 200, 400, 600, 800, 1000, 1200, 1400]
 
 async function getImages(){
 
-    const url = 'https://api-eu-central-1.graphcms.com/v2/ckl6dc75d119r01xsby95e3ym/master'
 
-    const query = gql`
-        query getVariants{
-            assets(locales:[en]){
-            url,
-            id
-            }
-        }
-    `
-    const res = await request(url, query)
-
-    for(const img of res.assets){
-        console.log(img.url)
-        const file = fs.createWriteStream(`graphImages/${img.id}.jpg`);
-        const request = await https.get(img.url, function(response) {
-        response.pipe(file);
-        });
-    }
-
+    // downloadImages()
     processDirectory('graphImages')
 
     function processDirectory(dir){
@@ -36,6 +18,29 @@ async function getImages(){
             if(!isDir){
                 processImage(dir,entry)
             }
+        }
+    }
+
+    async function downloadImages(){
+        const url = 'https://api-eu-central-1.graphcms.com/v2/ckl6dc75d119r01xsby95e3ym/master'
+
+        const query = gql`
+            query getVariants{
+                assets(locales:[en], first: 1000){
+                url,
+                id
+                }
+            }
+        `
+        const res = await request(url, query)
+
+        console.log(res.assets.length)
+
+        for(const img of res.assets){
+            const file = fs.createWriteStream(`graphImages/${img.id}.jpg`);
+            const request = await https.get(img.url, function(response) {
+            response.pipe(file);
+            });
         }
     }
 

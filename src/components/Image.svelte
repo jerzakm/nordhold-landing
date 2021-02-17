@@ -21,29 +21,31 @@
     let windowWidth = 0
 
     function renderImage(){
-        if(changeCount>0){
-            let width = el.getBoundingClientRect().width
+        // if(changeCount>0){
+        //     let width = el.getBoundingClientRect().width
 
-            const sizes = [...imageConfig.sizes].reverse()
+        //     const sizes = [...imageConfig.sizes].reverse()
 
-            windowWidth = window.innerHeight? window.innerWidth : window.innerHeight
+        //     windowWidth = window.innerHeight? window.innerWidth : window.innerHeight
 
-            if(fullSize){
-                width = windowWidth
-            }
+        //     if(fullSize){
+        //         width = windowWidth
+        //     }
 
-            for(let i =0; i< sizes.length;i++) {
-                if(sizes[i]>=width){
-                    jpgSrc = `${imgSrc}_${sizes[i]}.jpg`
-                    webpSrc = `${imgSrc}_${sizes[i]}.webp`
-                }
-                }
-                if(!jpgSrc&&!webpSrc){
-                    jpgSrc = `${imgSrc}_${sizes[0]}.jpg`
-                    webpSrc = `${imgSrc}_${sizes[0]}.webp`
-                }
-            }
-        changeCount++
+        //     for(let i =0; i< sizes.length;i++) {
+        //         if(sizes[i]>=width){
+        //             jpgSrc = `${imgSrc}_${sizes[i]}.jpg`
+        //             webpSrc = `${imgSrc}_${sizes[i]}.webp`
+        //         }
+        //         }
+        //         if(!jpgSrc&&!webpSrc){
+        //             jpgSrc = `${imgSrc}_${sizes[0]}.jpg`
+        //             webpSrc = `${imgSrc}_${sizes[0]}.webp`
+        //         }
+        //     }
+        // changeCount++
+        jpgSrc = `${imgSrc}_1400.jpg`
+        webpSrc = `${imgSrc}_1400.webp`
     }
 
     onMount(()=> {

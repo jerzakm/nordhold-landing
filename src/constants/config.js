@@ -1,0 +1,1 @@
+export const activeLocales = ['en','pl']

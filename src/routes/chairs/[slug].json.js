@@ -1,4 +1,5 @@
 import { request, gql } from 'graphql-request'
+import {activeLocales} from '../../constants/config'
 const marked = require("marked");
 
 export async function get(req, res, next) {
@@ -11,7 +12,7 @@ export async function get(req, res, next) {
     const productData = {}
     const variableLocales = {}
 
-    for(const locale of ['en','pl']) {
+    for(const locale of activeLocales) {
         variableLocales[locale] = {}
 
         //Product Query
