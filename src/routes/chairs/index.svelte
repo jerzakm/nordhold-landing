@@ -45,8 +45,8 @@
 
 	<div class="grid grid-cols-5 ">
 		{#each productList[language].products as product,i}
-			<a href={`chairs/${product.slug}`}>
-				<div class={`flex-shrink-0 m-4 relative overflow-hidden bg-white`}>
+			<a href={`chairs/${product.slug}`} rel="prefetch">
+				<div class={`flex-shrink-0 m-4 relative overflow-hidden bg-white shadow-2xl rounded-md h-full`}>
 					<div class="relative pt-10 px-2 flex items-center justify-center">
 						<Image style="relative object-cover w-full transform scale-125" imgSrc={`img/${product.productVariants[0].images[0].id}`}/>
 					</div>
@@ -71,9 +71,9 @@
 							</svg>
 							<span class="text-black ml-3">({product.testimonials.length})</span>
 						</span>
-						<span class="grid ml-1 p-1 grid-cols-4 gap-2">
+						<span class="grid ml-1 p-1 grid-cols-5 gap-1">
 							{#each product.productVariants as variant,i}
-								<span class="w-4 h-4 rounded-full mr-1" style={`background-color: ${variant.color.hex} mb-2`}/>
+								<span class="w-4 h-4 rounded-full border-gray-900" style={`background-color: ${variant.color.hex}; border-width: 1px;`}/>
 							{/each}
 						</span>
 					</div>

@@ -27,12 +27,20 @@
   let activeImage = 0
   let language = 'pl'
 
+  $: rating = testimonialAverage(productData[language].product.testimonials)
+
   onMount(()=> {
+    console.log(productData)
 
     languageStore.subscribe((lang) => {
       language = lang
     })
   })
+
+  function testimonialAverage(testimonials) {
+    const scores = testimonials.map(({ rating }) => rating)
+    return scores.reduce((a,b) => a+b) / scores.length
+  }
 
 
 </script>
@@ -76,7 +84,7 @@
               <div class="flex mb-4">
                 <span class="flex items-center">
                   <!-- TODO - TESTIMONIAL LINK AND START AVG COUNTER !! -->
-                  {#each {length: 5} as g,i}
+                  {#each {length: rating} as g}
                     <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-yellow-500" viewBox="0 0 24 24">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                     </svg>
@@ -89,7 +97,7 @@
                 <div class="flex">
                   <span class="mr-3">Kolor</span>
                   {#each productData[language].product.productVariants as variant, variantIndex}
-                    <button class={`border-2 border-gray-300 ml-1 rounded-full w-6 h-6 focus:outline-none hover:scale-150 transform duration-150`} style={`background-color: ${variant.color.hex}`}
+                    <button class={` ml-1 rounded-full w-6 h-6 focus:outline-none hover:scale-150 transform duration-150 shadow-2xl border-black`} style={`background-color: ${variant.color.hex}; border-width: 1px;`}
                       on:click={()=> {
                         variantChosen = variantIndex
                         activeImage = 0

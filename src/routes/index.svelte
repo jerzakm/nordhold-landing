@@ -6,7 +6,12 @@
 
 		const testimonialsRes = await this.fetch(`content/home.yaml`);
     const testimonialsYaml = await testimonialsRes.text()
-    const {testimonials, heroCarousel} = YAML.parse(testimonialsYaml)
+    const {testimonials} = YAML.parse(testimonialsYaml)
+
+    const { type } = page.query;
+
+		const res = await this.fetch('landingHero.json')
+		const heroCarousel = await res.json()
 
 
 
@@ -15,6 +20,8 @@
 
 	}
 </script>
+
+
 
 <script>
   import TransitionWrapper from '../components/animations/TransitionWrapper.svelte'
@@ -25,8 +32,22 @@
   import CategoryPreview from '../components/Home/CategoryPreview.svelte'
   import TestimonialScroll from '../components/Home/TestimonialScroll.svelte'
 
+  import {onMount} from 'svelte'
+  import {languageStore} from '../stores'
+
   export let heroCarousel;
   export let testimonials;
+
+
+  let language = 'pl'
+
+
+	onMount(()=> {
+
+		languageStore.subscribe((lang) => {
+		language = lang
+		})
+	})
 </script>
 
 <style>
@@ -39,7 +60,7 @@
 
 
 <TransitionWrapper>
-  <HeroCarousel data={heroCarousel}/>
+  <HeroCarousel data={heroCarousel? heroCarousel[language].landingHeroes : []}/>
   <TestimonialScroll data={testimonials}/>
   <CategoryPreview categoryName={"Fotele obrotowe"} series={"00 | Seria Ergo"}/>
   <BrandQualities/>

@@ -5,7 +5,7 @@
     export let imgSrc
     export let desc = ''
     export let style = ''
-    export let fullSize = false
+    // export let fullSize = false
 
     let image = imageConfig.placeholder
 

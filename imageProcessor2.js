@@ -39,7 +39,8 @@ async function getImages(){
         for(const img of res.assets){
             const file = fs.createWriteStream(`graphImages/${img.id}.jpg`);
             const request = await https.get(img.url, function(response) {
-            response.pipe(file);
+                response.pipe(file);
+                console.log(img)
             });
         }
     }
