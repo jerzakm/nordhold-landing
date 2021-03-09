@@ -1,9 +1,6 @@
-.DS_Store
+/___ELDER___/
 /node_modules/
-/src/node_modules/@sapper/
-yarn-error.log
-/cypress/screenshots/
-/__sapper__/
-/static/img/
-img/
-graphImages/
+/public/
+/build/
+.DS_Store
+
