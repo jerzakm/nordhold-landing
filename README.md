@@ -1,62 +1,38 @@
-# Elder.js Template Project
+# create-svelte
 
-<img src="https://img.shields.io/badge/dynamic/json?color=brightgreen&label=Node&query=engines.node&url=https%3A%2F%2Fraw.githubusercontent.com%2Felderjs%2Ftemplate%2Fmaster%2Fpackage.json" alt="node version" />
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
 
-This is a project template for [Elder.js](https://elderguide.com/tech/elderjs/) apps. The template lives at https://github.com/elderjs/template and the Elder.js source is here: https://github.com/elderjs/elderjs
+## Creating a project
 
-Here is a demo of the template: [https://elderjs.netlify.app/](https://elderjs.netlify.app/)
-
-## Get started
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-npx degit Elderjs/template elderjs-app
-cd elderjs-app
+# create a new project in the current directory
+npm init svelte@next
+
+# create a new project in my-app
+npm init svelte@next my-app
 ```
 
-### Install the dependencies:
+> Note: the `@next` is temporary
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
-npm install # or just yarn
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-### Start Project:
+## Building
 
-```bash
-npm start
-```
-
-Navigate to [localhost:3000](http://localhost:3000). You should see your app running.
-
-### Development:
-
-For development, we recommend running two separate terminals. One for the server and the other for rollup.
-
-**Terminal 1**
-
-```bash
-npm run dev:server # `npm start` above starts a server, but doesn't rebuild your Svelte components on change.
-```
-
-**Terminal 2**
-
-```bash
-npm run dev:rollup # This rebuilds your svelte components on change.
-```
-
-Once you have these two terminals open, edit a component file in `src`, save it, and reload the page to see your changes.
-
-### To Build HTML:
+Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
 
 ```bash
 npm run build
 ```
 
-This will build all of your html into the /public/ folder.
-
-### What to Expect
-
-- Nodemon is watching your files for changes. It will restart when it needs to.
-- Rollup is watching your files for changes. It will restart when it needs to.
-- If your `elder.config.js` has `@elderjs/plugin-browser-reload': {}` in it's plugins, your browser will automatically restart after the server restarts.
+> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
